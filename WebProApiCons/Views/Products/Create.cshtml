@@ -1,0 +1,19 @@
+﻿@model Product
+
+<h1>Crear Producto</h1>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price" class="control-label"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
