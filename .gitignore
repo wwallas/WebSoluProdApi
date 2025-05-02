@@ -9,7 +9,14 @@
 *.user
 *.userosscache
 *.sln.docstates
-/appsettings.json
+
+# Ignore appsettings files
+appsettings.json
+appsettings.*.json
+
+# Ignore user-specific files
+*.user
+*.suo
 
 dotnet user-secrets init --project WebProdApi
 dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Server=LAPTOP-ASVAS9LE\\SQLEXPRESS;initial catalog=WebApiProducts;integrated security=true " --project MyApiProject
