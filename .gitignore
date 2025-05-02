@@ -9,7 +9,10 @@
 *.user
 *.userosscache
 *.sln.docstates
-WebProdApi/appsettings.json
+/appsettings.json
+
+dotnet user-secrets init --project WebProdApi
+dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Server=LAPTOP-ASVAS9LE\\SQLEXPRESS;initial catalog=WebApiProducts;integrated security=true " --project MyApiProject
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
