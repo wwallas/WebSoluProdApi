@@ -1,6 +1,8 @@
+using Humanizer.Configuration;
 using System.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Register the HttpClient service to consume the API
 builder.Services.AddHttpClient("WebProApi", client =>
@@ -10,11 +12,11 @@ builder.Services.AddHttpClient("WebProApi", client =>
         new MediaTypeWithQualityHeaderValue("application/json") );
 });
 
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

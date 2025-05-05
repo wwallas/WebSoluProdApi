@@ -12,7 +12,18 @@ builder.Services.AddScoped<AdoNetContext>(); // Dependecy Injection
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+//Configurer CORS in the API (if MVC and API are in different domains)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowMvc",
+        builder => builder.WithOrigins("https://localhost:44310") // URL del MVC
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+});
 var app = builder.Build();
+app.UseCors("AllowMvc");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
