@@ -119,5 +119,18 @@ namespace WebProApiCons.Controllers
             ModelState.AddModelError(string.Empty, "Failed to create product");
             return View(product);
         }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public JsonResult GetTime()
+        {
+            DateTime time = DateTime.Now;
+            string response = time.ToString("yyyy-MM-dd HH:mm:ss");
+            return Json(response);
+        }
     }
 }

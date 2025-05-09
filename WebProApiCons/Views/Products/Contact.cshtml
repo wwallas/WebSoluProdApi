@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    p {
+        font-size: 1.5em;
+        color: grey;
+    }
+    .table-responsive {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+</style>
+<script>
+    function alerta()
+    {
+        alert("This is the contact page");
+    }
+
+    function GetTime()
+    {
+        var url = "@Url.Action("GetTime", "Products")";
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                alert("Current time is: " + data);
+            })
+            .catch(error => {
+                alert("Error occurred: " + error);
+            });
+        // $.ajax({
+        //     type: "GET",
+        //     url: url,
+        //     success: function (data) {
+        //         alert("Current time is: " + data);
+        //     },
+        //     error: function (xhr, status, error) {
+        //         alert("Error occurred: " + error);
+        //     }
+        // });
+    }
+</script>
+
+<h1>Contact Page</h1>
+<div>
+    This page contain information of our contact information.<br />
+    Phone : 555 -555-5555<br />
+    Email : John Doe@myemail.com
+</div> <br />
+<button type="button" class="btn btn-primary" onclick="GetTime()">Give me Time </button>
+
